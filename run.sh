@@ -7,4 +7,4 @@ else
 	echo "Mounting directory $1 as volume..."
 	directory="$1"
 fi
-docker run -d --name="graphlab" -v="${directory}/notebooks:/notebooks" -p 127.0.0.1:8888:8888 graphlab
+docker run -d --name="graphlab" -p 8888:8888 --sysctl net.ipv6.conf.all.disable_ipv6=0 -v="${directory}/notebooks:/workplace/notebooks" -v="${directory}/data:/workplace/data" graphlab

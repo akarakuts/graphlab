@@ -26,6 +26,5 @@ RUN set -eux \
     && rm -fv /tmp/zomato-requirements.txt \
     && conda clean --all --yes
 ADD notebook.sh /
-RUN chmod +x /notebook.sh
-RUN mkdir -p /notebooks
+RUN chmod +x /notebook.sh && mkdir -p /workplace/notebooks && mkdir -p /workplace/data
 CMD ["/notebook.sh"]
